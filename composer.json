@@ -1,0 +1,51 @@
+{
+    "name": "slavcodev/clock",
+  "description": "Clock abstraction",
+  "type": "library",
+  "license": "MIT",
+  "config": {
+    "discard-changes": true,
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "extra": {},
+  "minimum-stability": "stable",
+  "provide": {
+    "psr/clock-implementation": "1.0"
+  },
+  "require": {
+    "php": "~8.3",
+    "psr/clock": "*"
+  },
+  "require-dev": {
+    "slavcodev/php-cs-fixer-rules": "*",
+    "phpunit/phpunit": "^12.3",
+    "psalm/attributes": "^0.1.0",
+    "psalm/phar": "^6.13.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Slavcodev\\Clock\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Slavcodev\\Clock\\Tests\\": "tests"
+    }
+  },
+  "replace": {},
+  "scripts": {
+    "test-units": "phpunit --colors=always",
+    "test-sca": "psalm.phar --show-info=false --long-progress",
+    "fix-cs": "php-cs-fixer fix -v --diff --ansi",
+    "check-cs": "@fix-cs --dry-run",
+    "lint": [
+      "@check-cs",
+      "@test-sca"
+    ],
+    "test": [
+      "@lint",
+      "@test-units"
+    ]
+  }
+}
