@@ -32,3 +32,7 @@ _TBD_
 ```bash
 phpunit
 ```
+
+## Large selection
+
+[See other options](https://packagist.org/providers/psr/clock-implementation).
